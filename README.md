@@ -22,6 +22,8 @@ cd apple-ads-cli
 make install
 ```
 
+This installs `aads` to `$(go env GOBIN)` (or `$(go env GOPATH)/bin` if `GOBIN` is unset).
+
 Or build locally:
 
 ```bash

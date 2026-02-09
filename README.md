@@ -580,6 +580,10 @@ apple-ads-cli/
 
 No external HTTP client, table, or API client libraries.
 
+## Disclaimer
+
+This project is not affiliated with Apple Inc. It runs on your computer or server and only communicates with Apple's Apple Ads (Search Ads) API. You are responsible for how you use it.
+
 ## License
 
-MIT
+MIT. See `LICENSE`.

@@ -8,6 +8,7 @@ import (
 	"github.com/SaadBelfqih/apple-ads-cli/internal/api"
 	"github.com/SaadBelfqih/apple-ads-cli/internal/config"
 	"github.com/SaadBelfqih/apple-ads-cli/internal/output"
+	"github.com/SaadBelfqih/apple-ads-cli/internal/updatecheck"
 	"github.com/spf13/cobra"
 )
 
@@ -29,6 +30,15 @@ var rootCmd = &cobra.Command{
 	Short: "Apple Ads CLI (Campaign Management API v5)",
 	Long:  "A command-line interface for Apple's Apple Ads Campaign Management API v5, with safe retries, auto-pagination, and multiple output formats.",
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
+		// Lightweight update check (cached). Never installs anything, only prints a notice.
+		// Skip for version/help/configure/update to avoid noisy output.
+		switch cmd.Name() {
+		case "configure", "version", "help", "update":
+			// no-op
+		default:
+			updatecheck.MaybeNotify(cmd.Context(), os.Stderr, Version)
+		}
+
 		// Skip client init for commands that don't need it
 		if cmd.Name() == "configure" || cmd.Name() == "version" || cmd.Name() == "help" {
 			return nil

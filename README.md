@@ -85,6 +85,14 @@ All config values can be overridden with environment variables:
 
 Many `list` and `find` commands also support `--all` to auto-paginate through all results.
 
+## Update Checks
+
+By default, `aads` may check GitHub Releases (cached, about once per day) and print a one-line "Update available" notice. Nothing is auto-downloaded or installed.
+
+Disable: set `AADS_UPDATE_CHECK=0`.
+
+If the repo is private: set `AADS_GITHUB_TOKEN` (or `GH_TOKEN`) so `aads update` and update checks can access GitHub.
+
 ## Commands
 
 ### Campaigns

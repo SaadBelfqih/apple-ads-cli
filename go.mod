@@ -5,6 +5,7 @@ go 1.25.5
 require (
 	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/spf13/cobra v1.10.2
+	golang.org/x/mod v0.33.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 

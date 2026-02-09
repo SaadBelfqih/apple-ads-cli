@@ -1,0 +1,21 @@
+# Binary
+aads
+
+# Config (contains credentials)
+config.yaml
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Tooling
+.playwright-cli/
+
+# Test
+*.test
+coverage.out

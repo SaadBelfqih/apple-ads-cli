@@ -83,6 +83,10 @@ func Execute() {
 }
 
 func init() {
+	// Enable `aads --version` (no shorthand to avoid conflict with `-v/--verbose`).
+	rootCmd.Version = versionLine()
+	rootCmd.SetVersionTemplate("{{.Version}}\n")
+
 	rootCmd.PersistentFlags().StringVarP(&outputFormat, "output", "o", "json", "Output format: json, table, yaml")
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "Verbose output")
 	rootCmd.PersistentFlags().StringVar(&orgIDFlag, "org-id", "", "Override org ID from config")

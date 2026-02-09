@@ -1,0 +1,45 @@
+project_name: aads
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: .
+    binary: aads
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/SaadBelfqih/apple-ads-cli/cmd.Version={{.Version}}
+      - -X github.com/SaadBelfqih/apple-ads-cli/cmd.Commit={{.ShortCommit}}
+      - -X github.com/SaadBelfqih/apple-ads-cli/cmd.Date={{.Date}}
+
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+    format_overrides:
+      - goos: windows
+        format: zip
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+release:
+  prerelease: auto

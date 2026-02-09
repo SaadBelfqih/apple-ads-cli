@@ -21,6 +21,11 @@ var updateCmd = &cobra.Command{
 				fmt.Fprintln(os.Stderr, "Update check unavailable (repo may be private). If you're a contributor, set AADS_GITHUB_TOKEN or GH_TOKEN and try again.")
 				return nil
 			}
+			if strings.Contains(err.Error(), "no releases found") {
+				fmt.Fprintln(os.Stdout, "No releases found yet.")
+				fmt.Fprintln(os.Stdout, "Create a tag like v0.1.0-alpha.1 and push it to publish your first GitHub Release.")
+				return nil
+			}
 			return err
 		}
 		return nil

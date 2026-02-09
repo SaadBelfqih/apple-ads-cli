@@ -19,3 +19,6 @@ config.yaml
 # Test
 *.test
 coverage.out
+# Local tooling output
+.bin/
+output/

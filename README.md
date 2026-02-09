@@ -2,7 +2,7 @@
 
 A command-line interface for the [Apple Ads Campaign Management API 5](https://developer.apple.com/documentation/apple_ads). Manage campaigns, ad groups, keywords, creatives, reports, and more from your terminal.
 
-**~70 API endpoints** covered across 17 command groups. Pure Go (minimal deps), safe retries, auto-pagination (`--all`), and multiple output formats.
+**Alpha release.** ~70 API endpoints covered across 17 command groups. Pure Go (minimal deps), safe retries, auto-pagination (`--all`), and multiple output formats.
 
 Documentation:
 - Overview + usage notes: [`docs/README.md`](docs/README.md)

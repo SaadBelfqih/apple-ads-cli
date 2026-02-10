@@ -121,6 +121,11 @@ var reportsSearchTermsCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
+		// Apple's search terms endpoint supports returnRowTotals OR granularity, not both.
+		// If the user didn't explicitly set --granularity, clear it and use row totals only.
+		if !cmd.Flags().Changed("granularity") {
+			req.Granularity = ""
+		}
 		var adGroupID *int64
 		if agID > 0 {
 			adGroupID = &agID
